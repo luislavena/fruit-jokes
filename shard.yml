@@ -1,0 +1,22 @@
+name: fruit-jokes
+version: 0.1.0
+license: Apache-2.0
+crystal: ">= 1.14.0, < 2.0.0"
+authors:
+  - Luis Lavena <luislavena@gmail.com>
+targets:
+  fruit-jokes:
+    main: src/main.cr
+  # FIXME: workaround due lack of pre-compiled CLI version
+  drift:
+    main: lib/drift/src/cli.cr
+dependencies:
+  drift:
+    github: luislavena/drift
+    version: ~> 0.3.3
+  sqlite3:
+    github: crystal-lang/crystal-sqlite3
+    version: ~> 0.21.0
+  toro:
+    github: soveran/toro
+    version: ~> 0.5.1

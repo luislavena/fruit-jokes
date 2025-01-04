@@ -1,0 +1,22 @@
+version: 2.0
+shards:
+  db:
+    git: https://github.com/crystal-lang/crystal-db.git
+    version: 0.13.1
+
+  drift:
+    git: https://github.com/luislavena/drift.git
+    version: 0.3.3
+
+  seg:
+    git: https://github.com/soveran/seg.git
+    version: 0.1.0+git.commit.7f1cee94fb7ed7a2ba15f1388cbaede72a85eef9
+
+  sqlite3:
+    git: https://github.com/crystal-lang/crystal-sqlite3.git
+    version: 0.21.0
+
+  toro:
+    git: https://github.com/soveran/toro.git
+    version: 0.5.1
+

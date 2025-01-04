@@ -1,0 +1,1 @@
+server: watchexec -w src -f 'main.cr' --restart -- shards run fruit-jokes
