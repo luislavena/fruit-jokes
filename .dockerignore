@@ -1,0 +1,6 @@
+*.db*
+*.dwarf
+.git/
+/.shards/
+/bin/
+/lib/
