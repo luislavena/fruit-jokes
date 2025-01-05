@@ -122,7 +122,7 @@ end
 Drift.embed_as("drift_context", "../database/migrations")
 
 db_path = ENV.fetch("DB_PATH") { Dir.current }
-db = DB.open("sqlite3:#{File.join(db_path, "app.db")}?journal_mode=wal&synchronous=normal&busy_timeout=5000")
+db = DB.open("sqlite3:#{File.join(db_path, "fruit-jokes.db")}?journal_mode=wal&synchronous=normal&busy_timeout=5000")
 
 # apply migrations
 Drift::Migrator.new(db, drift_context).apply!
