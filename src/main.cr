@@ -12,8 +12,6 @@ struct JokesRepository
   alias Jokes = Array(Joke)
 
   def initialize(@db)
-    migrator = Drift::Migrator.new(@db, drift_context)
-    migrator.apply!
   end
 
   def create_joke(content : String) : Joke?
@@ -46,9 +44,6 @@ struct JokesRepository
       LIMIT $1;
       SQL
   end
-
-  # migrations path is relative to this file
-  Drift.embed_as("drift_context", "../database/migrations")
 end
 
 class WebApp < Toro::Router
@@ -123,7 +118,15 @@ class WebApp < Toro::Router
   end
 end
 
-db = DB.open("sqlite3:./app.db?journal_mode=wal&synchronous=normal&busy_timeout=5000")
+# migrations path is relative to this file
+Drift.embed_as("drift_context", "../database/migrations")
+
+db_path = ENV.fetch("DB_PATH") { Dir.current }
+db = DB.open("sqlite3:#{File.join(db_path, "app.db")}?journal_mode=wal&synchronous=normal&busy_timeout=5000")
+
+# apply migrations
+Drift::Migrator.new(db, drift_context).apply!
+
 WebApp.repository = JokesRepository.new(db)
 
 begin
