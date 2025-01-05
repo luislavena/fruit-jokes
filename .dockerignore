@@ -1,5 +1,6 @@
 *.db*
 *.dwarf
+*.env
 .git/
 /.shards/
 /bin/

@@ -1,0 +1,20 @@
+---
+dbs:
+  - path: ${DB_PATH}/fruit-jokes.db
+    replicas:
+      - name: replica_1
+        type: s3
+        bucket: ${REPLICA_1_BUCKET_NAME}
+        path: fruit-jokes
+        endpoint: ${REPLICA_1_ENDPOINT}
+        region: ${REPLICA_1_REGION}
+        access-key-id: ${REPLICA_1_ACCESS_KEY_ID}
+        secret-access-key: ${REPLICA_1_SECRET_ACCESS_KEY}
+      - name: replica_2
+        type: s3
+        bucket: ${REPLICA_2_BUCKET_NAME}
+        path: fruit-jokes
+        endpoint: ${REPLICA_2_ENDPOINT}
+        region: ${REPLICA_2_REGION}
+        access-key-id: ${REPLICA_2_ACCESS_KEY_ID}
+        secret-access-key: ${REPLICA_2_SECRET_ACCESS_KEY}
