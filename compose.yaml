@@ -3,7 +3,7 @@ name: fruit-jokes
 
 services:
   app:
-    image: ghcr.io/luislavena/hydrofoil-crystal:1.14
+    image: ghcr.io/luislavena/hydrofoil-crystal:1.15
     command: overmind start -f Procfile.dev
     working_dir: /workspace/${COMPOSE_PROJECT_NAME}
 

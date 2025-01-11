@@ -1,7 +1,7 @@
 # ---
 # build
 
-FROM ghcr.io/luislavena/hydrofoil-crystal:1.14 AS build
+FROM ghcr.io/luislavena/hydrofoil-crystal:1.15 AS build
 
 WORKDIR /build
 
@@ -20,7 +20,7 @@ RUN --mount=type=cache,target=/root/.cache \
 # ---
 # final image
 
-FROM registry.docker.com/library/alpine:3.21.0
+FROM registry.docker.com/library/alpine:3.21.2
 
 # upgrade system and installed dependencies for security patches
 RUN --mount=type=cache,sharing=private,target=/var/cache/apk \
