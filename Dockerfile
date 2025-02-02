@@ -23,7 +23,7 @@ RUN --mount=type=cache,target=/root/.cache \
 FROM registry.docker.com/library/alpine:3.21.2
 
 # upgrade system and installed dependencies for security patches
-RUN --mount=type=cache,sharing=private,target=/var/cache/apk \
+RUN --mount=type=cache,target=/var/cache/apk \
     set -eux; \
     apk upgrade
 
