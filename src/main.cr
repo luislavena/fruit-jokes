@@ -135,7 +135,9 @@ begin
     server.listen "::", 3000
   end
 ensure
+  puts "Closing DB connection..."
   db.close
+  puts "Done."
 end
 
 Fiber.yield
